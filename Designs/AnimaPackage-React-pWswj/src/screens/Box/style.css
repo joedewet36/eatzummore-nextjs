@@ -1,0 +1,62 @@
+.box {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.box .dark-mode-false-type-wrapper {
+  border: 0px none;
+  height: 44px;
+  position: relative;
+  width: 375px;
+}
+
+.box .dark-mode-false-type {
+  height: 44px;
+  left: 0;
+  position: fixed;
+  top: 0;
+  width: 375px;
+}
+
+.box .right-side {
+  height: 11px;
+  left: 294px;
+  position: absolute;
+  top: 17px;
+  width: 67px;
+}
+
+.box .battery {
+  height: 11px;
+  left: 42px;
+  position: absolute;
+  top: 0;
+  width: 24px;
+}
+
+.box .wifi {
+  height: 11px;
+  left: 22px;
+  position: absolute;
+  top: 0;
+  width: 15px;
+}
+
+.box .mobile-signal {
+  height: 11px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 17px;
+}
+
+.box .left-side {
+  height: 21px;
+  left: 21px;
+  position: absolute;
+  top: 12px;
+  width: 54px;
+}

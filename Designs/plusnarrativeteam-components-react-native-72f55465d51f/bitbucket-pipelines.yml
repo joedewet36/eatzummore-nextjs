@@ -1,0 +1,36 @@
+image: atlassian/default-image:3
+definitions:
+  caches:
+    npm: ~/.npm
+pipelines:
+  pull-requests:
+    master:
+      - step:
+          name: "Quality"
+          caches:
+            - npm
+          script:
+            - npm i
+            - npm run lint
+            - npm run test:ci
+      - step:
+          name: "Security"
+          caches:
+            - npm
+          script:
+            - npm i
+            - pipe: snyk/snyk-scan:0.5.2
+              variables:
+                SNYK_TOKEN: $SNYK_TOKEN
+                LANGUAGE: $SNYK_LANGUAGE
+                SEVERITY_THRESHOLD: $SNYK_SEVERITY
+                DONT_BREAK_BUILD: "false"
+      - step:
+          name: "Publish"
+          deployment: production
+          caches:
+            - npm
+          script:
+            - npm i
+            - npx expo login -u $EXPO_USERNAME -p $EXPO_PASSWORD
+            - npx expo publish --non-interactive
